@@ -8,7 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 User.destroy_all
-# Desvincular primero todos los hijos
 Post.where.not(parent_post_id: nil).update_all(parent_post_id: nil)
 Post.destroy_all
 

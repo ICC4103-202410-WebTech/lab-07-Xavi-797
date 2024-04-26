@@ -3,10 +3,10 @@ class Post < ApplicationRecord
     has_many :post_tags
     has_many :tags, through: :post_tags
 
-    # Association for the parent post (optional)
+
     belongs_to :parent_post, class_name: 'Post', optional: true
 
-    # Association for child posts
+
     has_many :child_posts, class_name: 'Post', foreign_key: 'parent_post_id'
 
     validates :title, presence: { message: "Title cannot be blank." }
